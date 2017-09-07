@@ -17,8 +17,8 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
-      render action: 'show'
-      # redirect_to "show", id: "params[:id]"
+      # render action: 'show'
+      redirect_to product_path(@product.id)
     else
       render action: 'new'
     end
