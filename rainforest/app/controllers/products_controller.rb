@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
-      # render action: 'show'
       redirect_to product_path(@product.id)
     else
       render action: 'new'
@@ -25,9 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-
     @product = Product.find(params[:id])
-    #code
   end
 
   def show
@@ -35,7 +32,17 @@ class ProductsController < ApplicationController
   end
 
   def update
-    #code
+    @product = Product.find(params[:id])
+
+    @product.name = params[:product][:name]
+    @product.description = params[:product][:description]
+    @product.price_in_cents = params[:product][:price_in_cents]
+
+    if @product.save
+      redirect_to product_path(@product.id)
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
