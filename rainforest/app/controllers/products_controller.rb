@@ -10,7 +10,18 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new
 
+    @product.name = params[:product][:name]
+    @product.description = params[:product][:description]
+    @product.price_in_cents = params[:product][:price_in_cents]
+
+    if @product.save
+      render action: 'show'
+      # redirect_to "show", id: "params[:id]"
+    else
+      render action: 'new'
+    end
   end
 
   def edit
