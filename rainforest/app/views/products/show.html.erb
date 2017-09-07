@@ -1,0 +1,9 @@
+<h1>Details</h1>
+
+  Name: <%= @product.name %> <br>
+  Description: <%= @product.description %> <br>
+  Price: $<%= @product.price_in_cents %> <br>
+  <p>
+    <%= link_to "Edit", "/products/#{@product.id}/edit" %>
+    | <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data: {Confirm: "Are you sure?"} %>
+  </p>
