@@ -7,7 +7,7 @@
 <% @products.each do |product| %>
   Name: <%= product.name %> <br>
   Description: <%= product.description %> <br>
-  Price: <%= product.price_in_cents %> <br>
+  Price: <%= product.price_in_dollars %> <br>
   <p>
     <%= link_to "Details", "/products/#{product.id}" %> <br>
   </p>
