@@ -12,5 +12,32 @@
 
 <% @product.reviews.each do |review| %>
 Comment: <%= review.comment %> <br>
-Created at: <%= review.created_at.localtime.strftime("%H:%M @ %m/%d/%y") %>
+Created at: <%= review.created_at.localtime.strftime("%H:%M @ %m/%d/%y") %> <br>
+Edit | Delete <br>
+<br>
 <% end %>
+
+
+<h4>New Review</h4>
+
+  <%= form_for([@product, @review]) do |f| %>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :comment %><br />
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
