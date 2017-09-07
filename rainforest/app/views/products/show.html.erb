@@ -7,3 +7,10 @@
     <%= link_to "Edit", "/products/#{@product.id}/edit" %>
     | <%= link_to "Delete", "/products/#{@product.id}", method: :delete, data: {Confirm: "Are you sure?"} %>
   </p>
+
+<h2>Reviews</h2>
+
+<% @product.reviews.each do |review| %>
+Comment: <%= review.comment %> <br>
+Created at: <%= review.created_at.localtime.strftime("%H:%M @ %m/%d/%y") %>
+<% end %>
