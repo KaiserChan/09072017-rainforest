@@ -15,7 +15,14 @@
     </nav>
   </header>
 
+  <br>
+  
   <body>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 

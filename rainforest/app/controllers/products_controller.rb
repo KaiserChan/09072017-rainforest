@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
+      flash[:notice] = "Product successfully created"
       redirect_to product_path(@product.id)
     else
       render action: 'new'
@@ -39,6 +40,7 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
+      flash[:notice] = "Product successfully updated"
       redirect_to product_path(@product.id)
     else
       render action: 'edit'
@@ -49,6 +51,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
 
+    flash[:notice] = "Product successfully deleted"
     redirect_to products_path
   end
 
