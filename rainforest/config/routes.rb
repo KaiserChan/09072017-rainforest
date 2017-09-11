@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-    resource :user, only: %i(create new)
+  resource :users, only: %i(create new)
 
 
 end
