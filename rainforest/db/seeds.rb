@@ -12,8 +12,8 @@ Product.create! name:names.sample, description: descriptions.sample, price_in_ce
 end
 
 comments = ['Great!', 'I love it!','Improves my life!','Would recommed to a friend','Shutup and take my money!']
-products_id = [1,2,3,4,5]
+
 
 5.times do
-  Review.create! comment:comments.sample, product_id: products_id.sample
+  Review.create! comment:comments.sample, product_id: Product.sample.id
 end
